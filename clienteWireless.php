@@ -148,14 +148,14 @@
                                             else $nombre = $dataIW['nombre'];
                                             ?>
                                             <td>
-                                                <div class=" btn" data-container="body" data-placement="right" data-toggle="popover" title="<?php echo $nombre ?>" data-content="<div>Modelo: <?php echo $dataIW['modelo']; ?><br>N/S: <?php echo $dataIW['numeroSerie']; ?><br>Mac: <?php echo $dataIW['mac']; ?><br>Firmware: <?php echo $dataIW['firmware']; ?></div>" data-html="true">
+                                                <div class=" btn" data-container="body" data-placement="right" data-toggle="popover" title="APS de <?php echo $nombre ?>" data-content="<div>Marca: <?php echo $dataIW['marca']; ?><br>Modelo: <?php echo $dataIW['modelo']; ?><br>N/S: <?php echo $dataIW['numeroSerie']; ?><br>Mac: <?php echo $dataIW['mac']; ?></div>" data-html="true">
                                                     <?php echo $dataIW['ubicacion']; ?></div>
                                             </td>
                                             <td class="text-center">
                                                 <p target="_blank" style="text-decoration:none" data-toggle="tooltip" data-placement="bottom" title="copiar"><?php echo $dataIW['ip']; ?></p>
                                             </td>
                                             <?php
-                                            $infoWirelessCredenciales = obtenerControladoraCredenciales($dataIW['id']);
+                                            $infoWirelessCredenciales = obtenerAPSCredenciales($dataIW['id']);
                                             $dataInfoWirelessCredenciales = $infoWirelessCredenciales->fetchAll(PDO::FETCH_ASSOC);
                                             ?>
                                             <td class="text-center">

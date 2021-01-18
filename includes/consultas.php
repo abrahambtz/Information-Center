@@ -197,9 +197,9 @@
         }
        return $resultado;
     }
-    function obtenerAPSCredenciales($idControladora){    
+    function obtenerAPSCredenciales($idaps){    
         try{
-            $consulta = "SELECT * FROM aps WHERE aps.idControladora = $idControladora";    
+            $consulta = "SELECT * FROM credencialesaps WHERE credencialesaps.idaps = $idaps";    
             $resultado = $GLOBALS['conexion']->prepare($consulta);
             $resultado->execute();
             
