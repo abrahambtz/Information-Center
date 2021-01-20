@@ -84,7 +84,7 @@
 							<h6 class="dropdown-header">Añadir</h6>
 							<div class="dropdown-divider"></div>
 
-							<a class="dropdown-item btn-danger" href="#" data-toggle="modal" data-target="#modalCliente">Cliente</a>
+							<a class="dropdown-item btn-danger" href="#" data-toggle="modal" data-target="#modalInsertarCliente">Cliente</a>
 
 						</div>
 					</div>
@@ -112,8 +112,6 @@
 
 				</nav>-->
 		</div>
-		</div>
-
 	</header>
 	<?php require_once "cliente.php"; ?>
 	<footer class="footer mt-5">
@@ -126,19 +124,10 @@
 							2021. Derechos Reservados
 						</p>
 					</li>
-
-
 				</nav>
-
-
 			</div>
 		</div>
 	</footer>
-
-
-
-
-
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper	.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -147,7 +136,6 @@
 	<script>
 		$(function() {
 			$('[data-toggle="popover"]').popover({
-				
 			});
 		})
 	</script>
@@ -158,8 +146,7 @@
 			})
 		})
 	</script>
-
-
+	<script type="text/javascript" src="js/main.js"></script> 
 </body>
 
 </html>
