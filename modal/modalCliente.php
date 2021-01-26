@@ -14,14 +14,14 @@
                         <div class="col">
                             <form id="cliente" action="POST" class="">
                                 <div class="form-group row">
-                                    <div class="col-12 mb-5">
-                                        <label for="nombre">Nombre</label>
+                                    <div class="col-12 mb-3">
+                                        <label for="nombre">Nombre del cliente.</label>
                                         <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre" required>
                                         <div class="invalid-feedback">
-                                        Selecciona
+                                            Selecciona
                                         </div>
                                     </div>
-                                    <div class="col-12  mb-3 input-group">
+                                    <div class="col-12  mb-2 input-group">
                                         <div class="input-group-prepend">
                                             <label class="input-group-text" for="matriz">Matriz</label>
                                         </div>
@@ -31,7 +31,31 @@
                                             <option value="2">B</option>
                                             <option value="3">C</option>
                                         </select>
-                                          <div class="invalid-feedback">Selecciona</div>
+                                        <div class="invalid-feedback">Selecciona</div>
+                                    </div>
+                                    <div class="col-12 ">
+                                        <label for="nombre">Tecnologia</label>
+                                    </div>
+                                    <div class="col-12 mb-2">
+                                        <div class="col-5 col-lg-3 form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="firewall" value="1">
+                                            <label class="form-check-label" for="firewall">Firewall</label>
+                                        </div>
+                                        <div class="col-5 col-lg-3 form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="switch" value="1">
+                                            <label class="form-check-label" for="switch">Switch</label>
+                                        </div>
+                                        <div class="col-5 col-lg-3 form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="telefonia" value="1">
+                                            <label class="form-check-label" for="telefonia">Telefonia</label>
+                                        </div>
+                                        <div class="col-5 col-lg-2 form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="wireless" value="1">
+                                            <label class="form-check-label" for="wireless">Wireless</label>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Selecciona
+                                        </div>
                                     </div>
                                 </div>
                         </div>

@@ -1,5 +1,6 @@
 <?php
- class Conexion{
+ class Conexion {
+   
      public static function Conectar(){
          
          $opciones = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
@@ -12,6 +13,6 @@
              die("El error de Conexión es :".$e->getMessage());
          } 
                  
-     }  
+     }
+    
  }
-?>

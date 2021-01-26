@@ -32,6 +32,8 @@
 							<div class="col-6 col-lg-4 pt-1 ">
 								<select class="selectpicker" data-live-search="true" name="clienteOp" id="clienteOp" title="seleccionar...">
 									<option value="" selected disabled>Seleccionar cliente</option>
+									
+						
 									<?php
 									$matrize = obtenerMatriz();
 									$clientes = obtenerCliente();
@@ -44,7 +46,11 @@
 											foreach ($dataCliente as $dataC) {
 												if ($dataM['matrices'] == $dataC['matriz']) {
 
-											?><option value="<?php echo $dataC['id'] ?>"><?php echo $dataC['cliente'] ?></option>
+											?>
+
+											<option value="<?php echo $dataC['id'] ?>"><?php echo $dataC['cliente'] ?>
+											
+											</option>
 											<?php	}
 											}
 											?></optgroup>
