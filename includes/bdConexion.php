@@ -10,7 +10,8 @@
          }
          catch (Exception $e){
              die("El error de Conexión es :".$e->getMessage());
-         }         
+         } 
+                 
      }  
  }
 ?>

@@ -12,7 +12,7 @@
                 <div class="container-fluid">
                     <div class="row mt-3">
                         <div class="col">
-                            <form id="cliente" action="#" class="">
+                            <form id="cliente" action="POST" class="">
                                 <div class="form-group row">
                                     <div class="col-12 mb-5">
                                         <label for="nombre">Nombre</label>
@@ -41,7 +41,7 @@
             </div>
 
             <div class="modal-footer">
-                <button class="btn btn-success" type="submit">Aceptar</button>
+                <button class="btn btn-success" id="accion" value="crear" type="submit">Aceptar</button>
                 <button class="btn btn-default" data-dismiss="modal">Cerrar</button>
             </div>
             </form>

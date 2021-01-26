@@ -27,8 +27,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="collapseWControladora" class="collapse show" aria-labelledby="headingWControladora" data-parent="#accordionWControladora">
-                            <table class="table  table-sm">
+                        <div id="collapseWControladora" class="collapse " aria-labelledby="headingWControladora" data-parent="#accordionWControladora">
+                            <table class="table table-sm">
                                 <thead>
                                     <tr>
                                         <th scope="col">Ubicacion</th>
@@ -122,8 +122,8 @@
                             </div>
                         </div>
 
-                        <div id="collapseWAPS" class="collapse show" aria-labelledby="headingWAPS" data-parent="#accordionWAPS">
-                        <table class="table  table-sm">
+                        <div id="collapseWAPS" class="collapse " aria-labelledby="headingWAPS" data-parent="#accordionWAPS">
+                            <table class="table  table-sm">
                                 <thead>
                                     <tr>
                                         <th scope="col">Ubicacion</th>
