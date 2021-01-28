@@ -16,7 +16,7 @@
 </head>
 
 <body>
-
+	
 	<?php require_once "modal/modalCliente.php"; ?>
 	<?php require_once "includes/consultas.php"; ?>
 
@@ -119,6 +119,7 @@
 		</div>
 	</header>
 	<?php require_once "cliente.php"; ?>
+	
 	<footer class="footer mt-5">
 		<div class="container ">
 			<div class="row ">

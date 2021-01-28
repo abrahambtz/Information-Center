@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalInsertarCliente">Añadir cliente.</h5>
-                <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                <button class="close" data-dismiss="modal" aria-label="Cerrar" id="btnCerrarX">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -42,7 +42,7 @@
                                             <label class="form-check-label" for="firewall">Firewall</label>
                                         </div>
                                         <div class="col-5 col-lg-3 form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" id="switch" value="1">
+                                            <input class="form-check-input" type="checkbox" id="switches" value="1">
                                             <label class="form-check-label" for="switch">Switch</label>
                                         </div>
                                         <div class="col-5 col-lg-3 form-check form-check-inline">
@@ -66,9 +66,10 @@
 
             <div class="modal-footer">
                 <button class="btn btn-success" id="accion" value="crear" type="submit">Aceptar</button>
-                <button class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button class="btn btn-default" id="btnCerrar" value="cerrar" data-dismiss="modal">Cancelar</button>
             </div>
             </form>
         </div>
     </div>
 </div>
+
