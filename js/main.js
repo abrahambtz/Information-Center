@@ -3,6 +3,7 @@ const formularioContactos = document.querySelector('#contacto');
 const formularioVpn = document.querySelector('#vpn');
 const formularioNotas = document.querySelector('#notas');
 
+
 const listadoClientes = document.querySelector('#clienteOp');
 const listadoContacto = document.querySelector('#listadoContactos');
 const listadoVpn = document.querySelector('#listadoVpn');
@@ -23,6 +24,36 @@ function eventListenerClose() {
     });
     $("#btnCerrarNotasX,#btnCerrarNotas").click(function () {
         $("#notas").trigger("reset");
+    });
+    
+    $(document).ready(function () {
+        var i = 0;
+        $("#btnNuevaInterfaz").on("click", function () {
+            
+            $("#listaInterfaz").append(' <div class="row mb-1"> '
+                + '<div class="col-5 col-md-6 pr-1">'
+                + '   <input type="text" class="form-control form-control-sm" id="interfazId'+i+++'" placeholder="" required>'
+                + '</div>'
+                + '<div class="col-4 col-md-3 pl-1">' +
+                '<input type="text" class="form-control form-control-sm" id="puerto" placeholder="" required>'
+               
+                + '</div >');
+        });
+        $("#btnEliminarInterfaz").on("click", function () {
+            $("#listaInterfaz").children().last().remove();
+           
+        });
+        $("#btnNuevaAcceso").on("click", function () {
+            
+            $("#listaAcceso").append(' <div class="row mb-1"> '
+                + '<div class="col-5 col-md-6 pr-1">'
+                + '   <input type="text" class="form-control form-control-sm" id="accesoId'+i+++'" placeholder="" required>'
+                + '</div>');
+        });
+        $("#btnEliminarAcceso").on("click", function () {
+            $("#listaAcceso").children().last().remove();
+           
+        });
     });
 
 
@@ -410,7 +441,7 @@ function leerFormularioNotas(e) {
     const nombreNota = document.querySelector('#nombreNota').value,
         descrpcionNota = document.querySelector('#descrpcionNota').value,
         accion = document.querySelector('#accionNotas').value;
-        idCliente = document.querySelector('#idClienteNotas').value;
+    idCliente = document.querySelector('#idClienteNotas').value;
     if (nombreNota === '' || descrpcionNota === '') {
         window.alert("Faltan campos.");
     }
@@ -456,29 +487,29 @@ function insertarBDNotas(datos) {
             //Inserta nuevos elementos al Select 
 
 
-            
+
             const nuevoNotas = document.createElement('div');
 
             const divCard = document.createElement('div');
             const divCardBody = document.createElement('div');
             const divCardText = document.createElement('div');
-            
+
             nuevoNotas.classList.add('col-12', 'col-lg-6', 'mb-3');
             divCard.classList.add('card');
             divCardBody.classList.add('card-body', 'mb-0');
             divCardText.classList.add('card-text', 'ml-3', 'mt-0', 'm-0');
-            divCardText.setAttribute('style','height: 5rem;');
-            
-            
+            divCardText.setAttribute('style', 'height: 5rem;');
+
+
             const contenedorInfo = document.createElement('p');
             contenedorInfo.classList.add('font-weight-light', 'm-0');
-            
+
             contenedorInfo.innerHTML = `${descripcion}`;
-            
+
             const acciones = document.createElement('p');
             const space = document.createElement('b');
             acciones.classList.add('m-0', 'text-right');
-            
+
             const btnEnditar = document.createElement('button');
             btnEnditar.classList.add('mr-1', 'btn', 'btn-sm', 'btn-info', 'rounded-circle');
             btnEnditar.setAttribute('data-toggle', 'tooltip');
@@ -486,9 +517,9 @@ function insertarBDNotas(datos) {
             btnEnditar.setAttribute('title', 'Editar');
             const iconoEditar = document.createElement('i');
             iconoEditar.classList.add('fas', 'fa-pencil-alt');
-            
+
             btnEnditar.appendChild(iconoEditar);
-            
+
             const btnEliminar = document.createElement('button');
             btnEliminar.classList.add('btn', 'btn-sm', 'btn-danger', 'rounded-circle');
             btnEliminar.setAttribute('data-toggle', 'tooltip');
@@ -496,22 +527,22 @@ function insertarBDNotas(datos) {
             btnEliminar.setAttribute('title', 'Eliminar');
             const iconoEliminar = document.createElement('i');
             iconoEliminar.classList.add('fas', 'fa-trash-alt');
-            
+
             btnEliminar.appendChild(iconoEliminar);
-            
+
             acciones.appendChild(btnEnditar);
             acciones.appendChild(space);
             acciones.appendChild(btnEliminar);
-            
-            
+
+
             const contenedorTitulo = document.createElement('p');
             contenedorTitulo.classList.add('card-title', 'font-weight-bold', 'm-0');
             const spanTitulo = document.createElement('span');
             spanTitulo.classList.add('badge', 'badge-danger');
             spanTitulo.innerHTML = `${respuesta.datos.nombreNota}`;
-            
+
             contenedorTitulo.appendChild(spanTitulo);
-            
+
             divCardText.appendChild(contenedorInfo);
             divCardBody.appendChild(contenedorTitulo);
             divCardBody.appendChild(divCardText);

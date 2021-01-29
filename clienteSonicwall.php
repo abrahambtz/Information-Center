@@ -9,7 +9,7 @@
                         </a>
                     </div>
                     <div class="col-6 text-right">
-                        <button class="btn btn-sm btn-success ">
+                        <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalFirewall">
                             <i class="fas fa-plus"></i>
                         </button>
                     </div>
@@ -122,3 +122,4 @@
         </div>
     </div>
 </div>
+<?php require_once "modal/modalSonicwall.php"; ?>
