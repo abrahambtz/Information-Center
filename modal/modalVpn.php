@@ -43,13 +43,13 @@
                                     <div class="col-md-4 mb-4">
                                         <label for="telefono">Tipo de VPN *</label>
                                         <div class="form-check">
-                                            <input class="form-check-input" checked="checked" name="vpn" type="radio" id="globalVPN" value="Global VPN Client" />
+                                            <input class="form-check-input" checked="checked" name="tipovpn" type="radio" id="globalVPN" value="Global VPN Client" required>
                                             <label class="form-check-label" for="globalVPN">
                                                 Global Client VPN
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" name="vpn" type="radio" id="netVPN" value="NetExtender" />
+                                            <input class="form-check-input" name="tipovpn" type="radio" id="netVPN" value="NetExtender" required>
                                             <label class="form-check-label" for="netVPN">
                                                 NetExtender
                                             </label>
@@ -69,7 +69,7 @@
             </div>
 
             <div class="modal-footer">
-                <button class="btn btn-success" id="accionVPN" value="crear" type="submit">Aceptar</button>
+                <button class="btn btn-success" id="accionVpn" value="crear" type="submit">Aceptar</button>
                 <button class="btn btn-default" id="btnCerrarVPN" value="cerrar" data-dismiss="modal">Cancelar</button>
             </div>
             </form>

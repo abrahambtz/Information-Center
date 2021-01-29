@@ -5,7 +5,7 @@ if (isset($_POST['clienteOp'])) {
 		$infoCliente = obtenerUnCliente($_POST['clienteOp']);
 		$dataInfoCliente = $infoCliente->fetchAll(PDO::FETCH_ASSOC);
 		foreach ($dataInfoCliente as $dataIC) { ?>
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row mt-3">
 					<div class="col-12 col-lg-3">
 						<div class="card" style="width: 17rem; height: 28.5rem;">
@@ -87,7 +87,7 @@ if (isset($_POST['clienteOp'])) {
 									<div class="row">
 										<div class="col-10 col-lg-11">
 											<h5 class="mb-0">
-												<a class="btn  collapsed" data-toggle="collapse" data-target="#collapseVPN" aria-expanded="true" aria-controls="collapseVPN">
+												<a class="btn btn-block text-left" data-toggle="collapse" data-target="#collapseVPN" aria-expanded="true" aria-controls="collapseVPN">
 													<h6>VPN</h6>
 												</a>
 											</h5>
@@ -102,7 +102,7 @@ if (isset($_POST['clienteOp'])) {
 								</div>
 								<div id="collapseVPN" class="collapse show" aria-labelledby="headingVPN" data-parent="#accordionClienteInformacion">
 									<div class="card-body">
-										<div class="row">
+										<div class="row" id="listadoVpn">
 											<?php
 											$infoClienteVPN = obtenerVPN($_POST['clienteOp']);
 											$dataInfoClienteVPN = $infoClienteVPN->fetchAll(PDO::FETCH_ASSOC);
@@ -126,7 +126,7 @@ if (isset($_POST['clienteOp'])) {
 																	<b>Shared Secret: </b><?php echo $dataICVpn['sharedSecret']; ?>
 																</p>
 																<p class=" m-0 text-right">
-																	<button class="btn btn-sm btn-info rounded-circle text-right" data-toggle="tooltip" data-placement="bottom" title="Editar">
+																	<button class="m-0 btn btn-sm btn-info rounded-circle text-right" data-toggle="tooltip" data-placement="bottom" title="Editar">
 																		<i class="fas fa-pencil-alt"></i>
 																	</button>
 																	<button class="btn btn-sm btn-danger rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Eliminar">
@@ -145,16 +145,25 @@ if (isset($_POST['clienteOp'])) {
 								</div>
 							</div>
 							<div class="card">
-								<div class="card-header" id="headingServer">
-									<h5 class="mb-0">
-										<a class="btn collapsed" data-toggle="collapse" data-target="#collapseServer" aria-expanded="false" aria-controls="collapseServer">
-											<h6>Servidores</h6>
-										</a>
-									</h5>
+								<div class="card-header" id="headingNotas">
+									<div class="row">
+										<div class="col-10 col-lg-11">
+											<h5 class="mb-0">
+												<a class="btn btn-block text-left" data-toggle="collapse" data-target="#collapseNotas" aria-expanded="false" aria-controls="collapseNotas">
+													<h6>Notas</h6>
+												</a>
+											</h5>
+										</div>
+										<div class="col-2 col-lg-1 pt-1">
+											<button class="btn btn-sm btn-success " data-toggle="modal" data-target="#modalNotas">
+												<i class="fas fa-plus"></i>
+											</button>
+										</div>
+									</div>
 								</div>
-								<div id="collapseServer" class="collapse" aria-labelledby="headingServer" data-parent="#accordionClienteInformacion">
+								<div id="collapseNotas" class="collapse" aria-labelledby="headingNotas" data-parent="#accordionClienteInformacion">
 									<div class="card-body">
-										<div class="row">
+										<div class="row" id="listadoNotas">
 											<?php
 											$infoClienteServidor = obtenerServidor($_POST['clienteOp']);
 											$dataInfoClienteServidor = $infoClienteServidor->fetchAll(PDO::FETCH_ASSOC);
@@ -165,15 +174,13 @@ if (isset($_POST['clienteOp'])) {
 													<div class="card">
 														<div class="card-body">
 															<p class="card-title font-weight-bold">
-																<span class="badge badge-danger">Servidor <?php echo $contServidor;
-																											$contServidor++; ?></span>
+																<span class="badge badge-danger"><?php echo $dataICS['nombre']; ?></span>
 															</p>
 															<p class="card-text">
 															<div class="ml-3 mt-0">
 																<p class="font-weight-light">
-																	<b>Usuario: </b> <?php echo $dataICS['usuario']; ?>
-																	<br>
-																	<b>Contraseña:</b> <?php echo $dataICS['contrasena']; ?>
+																	<?php echo $dataICS['descripcion']; ?>
+																	
 																</p>
 															</div>
 															</p>
@@ -190,6 +197,8 @@ if (isset($_POST['clienteOp'])) {
 				</div>
 				<?php require_once "modal/modalContacto.php"; ?>
 				<?php require_once "modal/modalVpn.php"; ?>
+				<?php require_once "modal/modalNotas.php"; ?>
+				
 				<div class="row mt-1">
 					<?php require_once "clienteSonicwall.php"; ?>
 					<?php require_once "clienteSwitch.php"; ?>

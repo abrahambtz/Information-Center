@@ -67,7 +67,7 @@ function obtenerVPN($idCliente)
 function obtenerServidor($idCliente)
 {
     try {
-        $consulta = "SELECT * FROM soporteservidores WHERE soporteservidores.idCliente = $idCliente";
+        $consulta = "SELECT * FROM soportenotas WHERE soportenotas.idCliente = $idCliente";
         $resultado = $GLOBALS['conexion']->prepare($consulta);
        $resultado->execute();
     } catch (Exception $e) {
