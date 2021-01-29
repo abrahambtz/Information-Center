@@ -8,7 +8,7 @@ if (isset($_POST['clienteOp'])) {
 			<div class="container-fluid">
 				<div class="row mt-3">
 					<div class="col-12 col-lg-3">
-						<div class="card" style="width: 17rem; height: 28.5rem;">
+						<div class="card" style=" height: 28.5rem;">
 							<img class="card-img-top" src="source/img/fandeli.png" alt="Card image cap">
 							<div class="card-body">
 								<h5 class="card-title"><?php echo $dataIC['cliente']; ?></h5>
@@ -170,19 +170,24 @@ if (isset($_POST['clienteOp'])) {
 											$contServidor = 1;
 											foreach ($dataInfoClienteServidor as $dataICS) {
 											?>
-												<div class="col-12 col-lg-4 mb-3">
+												<div class="col-12 col-lg-6 mb-3">
 													<div class="card">
-														<div class="card-body">
-															<p class="card-title font-weight-bold">
+														<div class="card-body mb-0">
+															<p class="card-title font-weight-bold m-0">
 																<span class="badge badge-danger"><?php echo $dataICS['nombre']; ?></span>
 															</p>
-															<p class="card-text">
-															<div class="ml-3 mt-0">
-																<p class="font-weight-light">
-																	<?php echo $dataICS['descripcion']; ?>
-																	
+															<div class="card-text ml-3 mt-0 m-0" style="height: 5rem;">
+																<p class="font-weight-light m-0">
+																	<?php echo substr($dataICS['descripcion'],0,200) ; ?>
 																</p>
 															</div>
+															<p class=" m-0 text-right">
+																<button class="m-0 btn btn-sm btn-info rounded-circle text-right" data-toggle="tooltip" data-placement="bottom" title="Editar">
+																	<i class="fas fa-pencil-alt"></i>
+																</button>
+																<button class="btn btn-sm btn-danger rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Eliminar">
+																	<i class="fas fa-trash-alt"></i>
+																</button>
 															</p>
 														</div>
 													</div>
@@ -198,7 +203,7 @@ if (isset($_POST['clienteOp'])) {
 				<?php require_once "modal/modalContacto.php"; ?>
 				<?php require_once "modal/modalVpn.php"; ?>
 				<?php require_once "modal/modalNotas.php"; ?>
-				
+
 				<div class="row mt-1">
 					<?php require_once "clienteSonicwall.php"; ?>
 					<?php require_once "clienteSwitch.php"; ?>

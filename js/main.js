@@ -318,11 +318,7 @@ function insertarBDVpn(datos) {
             // console.log(respuesta.accionContacto);
 
             //Inserta nuevos elementos al Select 
-
-
-
             const nuevoVpn = document.createElement('div');
-
             const divCard = document.createElement('div');
             const divCardBody = document.createElement('div');
             const divCardText = document.createElement('div');
@@ -332,11 +328,8 @@ function insertarBDVpn(datos) {
             divCardBody.classList.add('card-body', 'mb-0');
             divCardText.classList.add('card-text', 'ml-3', 'mt-0', 'm-0');
 
-
-
             const contenedorInfo = document.createElement('p');
             contenedorInfo.classList.add('font-weight-light', 'm-0');
-
             contenedorInfo.innerHTML = `
                 <b>IP: </b> ${respuesta.datos.ipvpn}
                 <br>
@@ -459,7 +452,7 @@ function insertarBDNotas(datos) {
             //Leeemos la respuesta de PHP
             const respuesta = JSON.parse(xhr.responseText);
             // console.log(respuesta.accionContacto);
-
+            const descripcion = respuesta.datos.descrpcionNota.substring(0, 200);
             //Inserta nuevos elementos al Select 
 
 
@@ -474,13 +467,13 @@ function insertarBDNotas(datos) {
             divCard.classList.add('card');
             divCardBody.classList.add('card-body', 'mb-0');
             divCardText.classList.add('card-text', 'ml-3', 'mt-0', 'm-0');
-            
+            divCardText.setAttribute('style','height: 5rem;');
             
             
             const contenedorInfo = document.createElement('p');
             contenedorInfo.classList.add('font-weight-light', 'm-0');
             
-            contenedorInfo.innerHTML = `${respuesta.datos.descrpcionNota}`;
+            contenedorInfo.innerHTML = `${descripcion}`;
             
             const acciones = document.createElement('p');
             const space = document.createElement('b');
@@ -520,9 +513,9 @@ function insertarBDNotas(datos) {
             contenedorTitulo.appendChild(spanTitulo);
             
             divCardText.appendChild(contenedorInfo);
-            divCardText.appendChild(acciones);
             divCardBody.appendChild(contenedorTitulo);
             divCardBody.appendChild(divCardText);
+            divCardBody.appendChild(acciones);
             divCard.appendChild(divCardBody);
             nuevoNotas.appendChild(divCard);
             listadoNotas.appendChild(nuevoNotas);
