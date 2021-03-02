@@ -8,7 +8,7 @@
                         echo $dataIC['cliente'];
                     } ?>.
                 </h5>
-                <button class="close" id="btnCerrarContactoX" data-dismiss="modal" aria-label="Cerrar">
+                <button class="close" id="btnCerrarFirewallX" data-dismiss="modal" aria-label="Cerrar">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -17,7 +17,7 @@
                 <div class="container-fluid">
                     <div class="row mt-3">
                         <div class="col">
-                            <form id="firewall" action="POST" class="">
+                            <form id="firewallForm" action="POST" class="">
 
                                 <div class="form-group row">
                                     <?php
@@ -60,6 +60,41 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12" id="listaAcceso">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mb-2">
+                                        <div class="card card-body p-2">
+                                            <div class="row pr-0">
+                                                <div class="col-5 col-md-5 text-left mt-1">
+                                                    <label>Usuario.</label>
+                                                </div>
+                                                <div class="col-4 col-md-5 text-left mt-1 pl-1 p-0">
+                                                    <label>Contraseña.</label>
+                                                </div>
+                                                <div class="col-1 col-md-1 pr-0 text-right">
+                                                    <button class="btn btn-sm btn-danger" id="btnEliminarCredencial" value="eliminar" type="button">
+                                                        <i class="fas fa-times"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="col-1 col-md-1 text-right">
+                                                    <button class="btn btn-sm btn-success" id="btnNuevaCredencial" value="crear" type="button">
+                                                        <i class="fas fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-12 ">
+                                                    <div class="row mb-1">
+                                                        <div class="col-5 col-md-5 pr-1">
+                                                            <input type="text" class="form-control form-control-sm" id="usuarioFirewall" placeholder="" required>
+                                                        </div>
+                                                        <div class="col-5 col-md-5 pl-1">
+                                                            <input type="text" class="form-control form-control-sm" id="contrasenaFirewall" placeholder="" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12" id="listaCredenciales">
 
                                                 </div>
                                             </div>
@@ -131,8 +166,8 @@
             </div>
 
             <div class="modal-footer">
-                <button class="btn btn-success" id="accionContacto" value="crear" type="submit">Aceptar</button>
-                <button class="btn btn-default" id="btnCerrarContacto" value="cerrar" data-dismiss="modal">Cancelar</button>
+                <button class="btn btn-success" id="accionFirewall" value="crear" type="submit">Aceptar</button>
+                <button class="btn btn-default" id="btnCerrarFirewall" value="cerrar" data-dismiss="modal">Cancelar</button>
             </div>
             </form>
         </div>

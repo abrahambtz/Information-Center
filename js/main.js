@@ -2,16 +2,20 @@ const formularioCliente = document.querySelector('#cliente');
 const formularioContactos = document.querySelector('#contacto');
 const formularioVpn = document.querySelector('#vpn');
 const formularioNotas = document.querySelector('#notas');
-
+const formularioFirewall = document.querySelector('#firewallForm');
 
 const listadoClientes = document.querySelector('#clienteOp');
 const listadoContacto = document.querySelector('#listadoContactos');
 const listadoVpn = document.querySelector('#listadoVpn');
 const listadoNotas = document.querySelector('#listadoNotas');
-
+const listadoFirewall = document.querySelector('#tablaSonic');
 
 eventListener();
 eventListenerClose();
+//Estos arreglos es utilizado para agregar las variables de las intefaces/accesos/credeciales de la txt del modal firewall.
+interfazFirewall = []; 
+accesoFirewall= []; 
+credencialesFirewall =[];
 function eventListenerClose() {
     $("#btnCerrarX, #btnCerrar").click(function () {
         $("#cliente").trigger("reset");
@@ -25,36 +29,70 @@ function eventListenerClose() {
     $("#btnCerrarNotasX,#btnCerrarNotas").click(function () {
         $("#notas").trigger("reset");
     });
-    
-    $(document).ready(function () {
-        var i = 0;
-        $("#btnNuevaInterfaz").on("click", function () {
-            
-            $("#listaInterfaz").append(' <div class="row mb-1"> '
-                + '<div class="col-5 col-md-6 pr-1">'
-                + '   <input type="text" class="form-control form-control-sm" id="interfazId'+i+++'" placeholder="" required>'
-                + '</div>'
-                + '<div class="col-4 col-md-3 pl-1">' +
-                '<input type="text" class="form-control form-control-sm" id="puerto" placeholder="" required>'
-               
-                + '</div >');
-        });
-        $("#btnEliminarInterfaz").on("click", function () {
-            $("#listaInterfaz").children().last().remove();
-           
-        });
-        $("#btnNuevaAcceso").on("click", function () {
-            
-            $("#listaAcceso").append(' <div class="row mb-1"> '
-                + '<div class="col-5 col-md-6 pr-1">'
-                + '   <input type="text" class="form-control form-control-sm" id="accesoId'+i+++'" placeholder="" required>'
-                + '</div>');
-        });
-        $("#btnEliminarAcceso").on("click", function () {
-            $("#listaAcceso").children().last().remove();
-           
-        });
+    $("#btnCerrarFirewallX,#btnCerrarFirewall").click(function () {
+        $("#firewallForm").trigger("reset");
+        $("#listaAcceso").empty();
+        $("#listaCredenciales").empty();
+        $("#listaInterfaz").empty();
     });
+
+
+    var contI = 0;
+    var contP = 0;
+
+    $("#btnNuevaInterfaz").on("click", function () {
+        
+        $("#listaInterfaz").append(' <div class="row mb-1"> '
+            + '<div class="col-5 col-md-6 pr-1">'
+            + '   <input type="text" class="form-control form-control-sm" id="interfazId' + contI + '" placeholder="" required>'
+            + '</div>'
+            + '<div class="col-4 col-md-3 pl-1">' +
+            '<input type="text" class="form-control form-control-sm" id="puerto' + contP + '" placeholder="" required>'
+
+            + '</div >');
+        interfazFirewall.push("interfazId" + contI++);
+        interfazFirewall.push("puerto" + contP++);
+
+    });
+    $("#btnEliminarInterfaz").on("click", function () {
+        $("#listaInterfaz").children().last().remove();
+        interfazFirewall.pop("interfazId" + contI);
+        interfazFirewall.pop("puerto" + contP);
+    });
+    var contU = 0;
+    var contC = 0;
+    $("#btnNuevaCredencial").on("click", function () {
+
+        $("#listaCredenciales").append(' <div class="row mb-1"> '
+            + '<div class="col-5 col-md-5 pr-1">'
+            + '   <input type="text" class="form-control form-control-sm" id="usuarioFirewallId' + contU + '" placeholder="" required>'
+            + '</div>'
+            + '<div class="col-5 col-md-5 pl-1">' +
+            '<input type="text" class="form-control form-control-sm" id="contrasenaFirewall' + contC+ '" placeholder="" required>'
+
+            + '</div >');
+            credencialesFirewall.push("usuarioFirewallId" + contU++);
+            credencialesFirewall.push("contrasenaFirewall" + contC++);
+    });
+    $("#btnEliminarCredencial").on("click", function () {
+        $("#listaCredenciales").children().last().remove();
+        credencialesFirewall.pop("usuarioFirewallId" + contI);
+        credencialesFirewall.pop("contrasenaFirewall" + contP);
+    });
+    var contA = 0;
+    $("#btnNuevaAcceso").on("click", function () {
+
+        $("#listaAcceso").append(' <div class="row mb-1"> '
+            + '<div class="col-5 col-md-6 pr-1">'
+            + '   <input type="text" name="pwd" class="form-control form-control-sm" id="accesoId' + contA + '" placeholder="" required>'
+            + '</div>');
+            accesoFirewall.push("accesoId" + contA++);
+    });
+    $("#btnEliminarAcceso").on("click", function () {
+        $("#listaAcceso").children().last().remove();
+        accesoFirewall.pop("accesoId" + contA);
+    });
+
 
 
 }
@@ -65,6 +103,7 @@ function eventListener() {
     formularioContactos.addEventListener('submit', leerFormularioContacto);
     formularioVpn.addEventListener('submit', leerFormularioVpn);
     formularioNotas.addEventListener('submit', leerFormularioNotas);
+    formularioFirewall.addEventListener('submit', leerFormularioFirewall);
 }
 function leerFormularioCliente(e) {
     e.preventDefault();
@@ -466,7 +505,6 @@ function leerFormularioNotas(e) {
         }
     } //console.log("Estan llenos los campos");
 }
-
 function insertarBDNotas(datos) {
     //llamados ajax
 
@@ -566,4 +604,56 @@ function insertarBDNotas(datos) {
     //$("#clienteOp").prepend("<option value='Auto 0' selected='selected'>Auto 0</option>");
     xhr.send(datos);
     $("#modalNotas .close").click()
+}
+
+function leerFormularioFirewall(e) {
+
+    e.preventDefault();
+
+    const ubicacionFirewall = document.querySelector('#ubicacionFirewall').value,
+         acceso = document.querySelector('#acceso').value,
+         usuarioFirewall = document.querySelector('#usuarioFirewall').value,
+         contrasenaFirewall = document.querySelector('#contrasenaFirewall').value,
+         modelo = document.querySelector('#modelo').value,
+         nsFirewall = document.querySelector('#nsFirewall').value,
+         firmwareFirewall = document.querySelector('#firmwareFirewall').value,
+         interfaz = document.querySelector('#interfaz').value,
+         puerto = document.querySelector('#puerto').value,
+         accion = document.querySelector('#accionFirewall').value,
+         idClienteFirewall = document.querySelector('#idClienteFirewall').value;
+
+    console.log(ubicacionFirewall);   
+
+
+    /*Se puedo obtener datos, falta agregar listas de acceso credenciales e interfaces./*
+
+
+    console.log(interfazFirewall);
+    console.log(accesoFirewall);
+    console.log(credencialesFirewall);
+    
+    if (ubicacionFirewall === '0') {
+        window.alert("Faltan campos.");
+    }
+    /*
+    else {
+        const infoCliente = new FormData();
+
+        infoCliente.append('nombreNota', nombreNota);
+        infoCliente.append('descrpcionNota', descrpcionNota);
+        infoCliente.append('accion', accion);
+        infoCliente.append('idCliente', idCliente);
+        //console.log(...infoCliente);
+        if (accion === 'crear') {
+
+            //Crearemos un nuevo elemento
+            //console.log(infoCliente);
+            insertarBDNotas(infoCliente);
+
+
+        } else {
+            //Editar el contacto   
+            console.log("Hola");
+        }
+    } //console.log("Estan llenos los campos");*/
 }
