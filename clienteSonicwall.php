@@ -30,7 +30,7 @@
 
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tablaFirewall">
                             <?php
                             $infoSonicwall = obtenerSonicwall($_POST['clienteOp']);
                             $dataInfoSonicwall = $infoSonicwall->fetchAll(PDO::FETCH_ASSOC);
@@ -38,7 +38,7 @@
                             ?>
                                 <tr>
                                     <td>
-                                        <div class=" btn" data-container="body" data-placement="left" data-toggle="popover" title="Informacion de Equipo" data-content="<div>Modelo: <?php echo $dataIS['modelo']; ?><br>N/S: <?php echo $dataIS['numeroSerie']; ?><br>Firmware:<br> <?php echo $dataIS['versionDeFirmware']; ?></div>" data-html="true">
+                                        <div class="btn" data-container="body" data-placement="left" data-toggle="popover" title="Informacion de Equipo" data-content="<div>Modelo: <?php echo $dataIS['modelo']; ?><br>N/S: <?php echo $dataIS['numeroSerie']; ?><br>Firmware:<br> <?php echo $dataIS['versionDeFirmware']; ?></div>" data-html="true">
                                             <?php echo $dataIS['ubicacion']; ?></div>
                                     </td>
                                     <?php
@@ -53,8 +53,8 @@
                                         ?><br><?php
                                             }
                                                 ?><a href="https://<?php echo $dataISA['ip']; ?>" target="_blank" style="text-decoration:none" data-toggle="tooltip" data-placement="bottom" title="Abrir"><?php echo $dataISA['ip']; ?></a><?php
-                                                                                                                                                                                                                                        $cont = 1;
-                                                                                                                                                                                                                                    } ?>
+                                                                                                                                                                                                                                            $cont = 1;
+                                                                                                                                                                                                                                        } ?>
 
                                     </td>
                                     <?php
@@ -112,9 +112,10 @@
                                         </p>
                                     </td>
                                 </tr>
-
+                                           
 
                             <?php } ?>
+                            
                         </tbody>
                     </table>
                 </div>

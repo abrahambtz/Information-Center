@@ -1,5 +1,4 @@
 <?php
-
 if ($_POST['accionContacto'] == 'crear') {
     require_once('../../includes/bdConexion.php');
     $objeto = new Conexion();

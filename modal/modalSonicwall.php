@@ -27,7 +27,7 @@
                                     <?php
                                     } ?>
                                     <div class="col-md-8 mb-2">
-                                        <b><label for="nombreContacto">Ubicacion. *</label></b>
+                                        <b><label >Ubicacion. *</label></b>
                                         <input type="text" class="form-control" id="ubicacionFirewall" placeholder="ubicacion o sitio del equipo" required>
                                     </div>
                                     <div class="col-md-12 text-left">
@@ -154,6 +154,10 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="col-md-12 mb-2">
+                                        <b><label>Comentarios. </label></b>                          
+                                        <textarea class="form-control" id="comentarios" rows="5" placeholder="ingresa tus comentarios del equipo"></textarea>
                                     </div>
                                 </div>
 
